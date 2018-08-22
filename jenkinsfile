@@ -1,10 +1,8 @@
 pipeline {
-    agent any 
-    stages {
-        stage('Stage 1') {
-            steps {
-                echo 'Hello world!' 
-            }
-        }
+      agent {
+        docker { image 'jojomi/hugo' }
+    }
+    parameters {
+        string (name:'project_name', defaultValue:'ANZ Content Support')
     }
 }
